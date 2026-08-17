@@ -24,6 +24,10 @@
   --font-display: "Fraunces", Georgia, serif;
   --font-body: "Inter Tight", "Helvetica Neue", Arial, sans-serif;
   --fraunces-settings: "opsz" 144, "wght" 100, "SOFT" 0, "WONK" 1;
+  /* Seitenränder */
+  --pad-x: 96px;
+  --pad-top: 48px;
+  --pad-bottom: 64px;
 }
 
 /* ── Reset ── */
@@ -87,7 +91,7 @@ main {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 24px 32px;
+  padding: var(--pad-top) var(--pad-x) 0;
 }
 
 .logo {
@@ -102,16 +106,23 @@ main {
 /* ── Hero (Platzhalter) ── */
 
 .hero {
-  padding: 0 32px 64px;
+  padding: var(--pad-top) var(--pad-x) var(--pad-bottom);
   display: flex;
   flex-direction: column;
   justify-content: center;
   min-height: 55vh;
 }
 
+.subline {
+  margin-top: 16px;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--text);
+}
+
 .hero-text {
   max-width: 34ch;
-  margin-top: 32px;
+  margin-top: 64px;
   font-size: 10px;
   letter-spacing: 1px;
   line-height: 18px;
@@ -122,6 +133,14 @@ main {
   display: flex;
   flex-direction: column;
   gap: 8px;
+}
+
+.contact-label {
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text);
+  margin-bottom: 4px;
 }
 
 .hero-contact a {
@@ -144,7 +163,7 @@ main {
 /* ── Rechtstexte ── */
 
 .legal {
-  padding: 0 32px 64px;
+  padding: var(--pad-top) var(--pad-x) var(--pad-bottom);
 }
 
 .legal-text {
@@ -199,7 +218,7 @@ main {
 
 .footer {
   flex-shrink: 0;
-  padding: 32px;
+  padding: 32px var(--pad-x) var(--pad-bottom);
   border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
@@ -234,32 +253,19 @@ main {
   color: var(--accent-link);
 }
 
-.footer-instagram {
-  color: var(--text);
-  transition: color 0.2s;
-  display: flex;
-  align-items: center;
-}
-
-.footer-instagram:hover {
-  color: var(--accent-link);
-}
-
 /* ── Responsive ── */
 
+@media (max-width: 900px) {
+  :root {
+    --pad-x: 48px;
+  }
+}
+
 @media (max-width: 480px) {
-  .navbar {
-    padding: 24px;
-  }
-
-  .hero,
-  .legal {
-    padding-left: 24px;
-    padding-right: 24px;
-  }
-
-  .footer {
-    padding: 24px;
+  :root {
+    --pad-x: 32px;
+    --pad-top: 40px;
+    --pad-bottom: 48px;
   }
 
   .footer-inner {

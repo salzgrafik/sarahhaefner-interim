@@ -20,13 +20,14 @@ Gesamtgröße ohne Fonts: ~40 KB. Mit Fonts: ~185 KB.
 
 ## Deploy auf GitHub Pages
 
+Git-Repo ist bereits initialisiert, erster Commit liegt vor (Branch `master`).
+
 1. Repo auf GitHub anlegen (z. B. `sarahhaefner-platzhalter`, public — Pages braucht bei Free-Accounts ein öffentliches Repo).
 2. Lokal im Ordner `platzhalter/`:
 
    ```bash
-   git init
-   git add .
-   git commit -m "Platzhalterseite"
+   rm -f .git/*.lock .git/refs/heads/*.lock
+   find .git/objects -name 'tmp_obj*' -delete
    git branch -M main
    git remote add origin git@github.com:<user>/sarahhaefner-platzhalter.git
    git push -u origin main
